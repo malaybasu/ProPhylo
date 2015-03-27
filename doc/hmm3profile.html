@@ -1,0 +1,115 @@
+<?xml version="1.0" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>hmm3profile.pl - Creating a phylogenetic profile out of a HMMSEARCH result from HMMR3.</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rev="made" href="mailto:helpdesk@jcvi.org" />
+</head>
+
+<body style="background-color: white">
+
+
+<!-- INDEX BEGIN -->
+<div name="index">
+<p><a name="__index__"></a></p>
+
+<ul>
+
+	<li><a href="#name">NAME</a></li>
+	<li><a href="#synopsis">SYNOPSIS</a></li>
+	<li><a href="#description">DESCRIPTION</a></li>
+	<li><a href="#installation">INSTALLATION</a></li>
+	<li><a href="#options">OPTIONS</a></li>
+	<li><a href="#copyright">COPYRIGHT</a></li>
+	<li><a href="#authors">AUTHORS</a></li>
+</ul>
+
+<hr name="index" />
+</div>
+<!-- INDEX END -->
+
+<p>
+</p>
+<h1><a name="name">NAME</a></h1>
+<p>hmm3profile.pl - Creating a phylogenetic profile out of a HMMSEARCH result from HMMR3.</p>
+<p>
+</p>
+<hr />
+<h1><a name="synopsis">SYNOPSIS</a></h1>
+<p>hmm3profile.pl [options] &gt; result_file</p>
+<p>
+</p>
+<hr />
+<h1><a name="description">DESCRIPTION</a></h1>
+<p>This script search a fasta database of sequences by a HMM. It then parses the resulting file to create a phylogenetic profile.</p>
+<p>
+</p>
+<hr />
+<h1><a name="installation">INSTALLATION</a></h1>
+<p>You need Malay's SeqToolBox to run this script. Contact Malay (<a href="mailto:mbasu@jcvi.org">mbasu@jcvi.org</a>) for a copy of SeqToolBox. Unzip the modules in your PERL5LIB. You need to first set up the NCBI taxonomy database for using this script. For this set up an environment variable &quot;SEQTOOLBOXDB&quot; pointing to a directory that can store about ~1.5 GB of data. After setting up this enviornment variable, run install/update_taxonomy.pl script. This will create all the databases required for running this script. If you are using this as a part of ProPhylo package then follow the installation instruction of ProPhylo. Nothing special is needed.</p>
+<p>
+</p>
+<hr />
+<h1><a name="options">OPTIONS</a></h1>
+<dl>
+<dt><strong><a name="help_h" class="item"><strong>--help | -h</strong></a></strong></dt>
+
+<dd>
+<p>Print this help message.</p>
+</dd>
+<dt><strong><a name="file_f" class="item"><strong>--file | -f</strong></a></strong></dt>
+
+<dd>
+<p>The full path of HMM file.</p>
+</dd>
+<dt><strong><a name="db_d" class="item"><strong>--db | -d</strong></a></strong></dt>
+
+<dd>
+<p>The multifasta file containing the sequences.</p>
+</dd>
+<dt><strong><a name="options_o" class="item"><strong>--options| -o</strong></a></strong></dt>
+
+<dd>
+<p>Options directly passed through HMMSEARCH. Pass this as complete string like this &quot;-E 0.001 --threads 4&quot;. Keep the quote around the options.</p>
+</dd>
+<dt><strong><a name="taxdis_t" class="item"><strong>--taxdis | -t</strong></a></strong></dt>
+
+<dd>
+<p>A taxnomic distribution file. Should have been created using taxdist_fasta.pl. These taxons are appended to the final profile files, after checking the presence or absence of hits in these taxa.</p>
+</dd>
+<dt><strong><a name="hmmer_h_hmmer_result_file" class="item"><strong>--hmmer | -H = hmmer_result_file</strong></a></strong></dt>
+
+<dd>
+<p>You can create a profile out of a pre-existing HMMER search. You can not use both -f,-H, or -a at the same time.</p>
+</dd>
+<dt><strong><a name="add_a" class="item"><strong>--add | -a</strong></a></strong></dt>
+
+<dd>
+<p>You can add taxon data to a pre-existing result. Use -t with this option.</p>
+</dd>
+<dt><strong><a name="clean" class="item"><strong>--clean</strong></a></strong></dt>
+
+<dd>
+<p>Clean the HMMER result file.</p>
+</dd>
+<dt><strong><a name="cutoff_c_bit_score_cutoff" class="item"><strong>--cutoff | -c = bit_score_cutoff</strong></a></strong></dt>
+
+<dd>
+<p>You can use a bit score cutoff while parsing a preexisting HMMER result file.</p>
+</dd>
+</dl>
+<p>
+</p>
+<hr />
+<h1><a name="copyright">COPYRIGHT</a></h1>
+<p>Copyright (c) 2009 Malay K Basu &lt;<a href="mailto:malay@bioinformatics.org">malay@bioinformatics.org</a>&gt;.</p>
+<p>
+</p>
+<hr />
+<h1><a name="authors">AUTHORS</a></h1>
+<p>Malay K Basu &lt;<a href="mailto:malay@bioinformatics.org">malay@bioinformatics.org</a>&gt;</p>
+
+</body>
+
+</html>

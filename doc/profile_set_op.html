@@ -1,0 +1,93 @@
+<?xml version="1.0" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>profile_set_op.pl - Performs set operations of profile files.</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rev="made" href="mailto:helpdesk@jcvi.org" />
+</head>
+
+<body style="background-color: white">
+
+
+<!-- INDEX BEGIN -->
+<div name="index">
+<p><a name="__index__"></a></p>
+
+<ul>
+
+	<li><a href="#name">NAME</a></li>
+	<li><a href="#synopsis">SYNOPSIS</a></li>
+	<li><a href="#copyright">COPYRIGHT</a></li>
+	<li><a href="#authors">AUTHORS</a></li>
+</ul>
+
+<hr name="index" />
+</div>
+<!-- INDEX END -->
+
+<p>
+</p>
+<h1><a name="name">NAME</a></h1>
+<p>profile_set_op.pl - Performs set operations of profile files.</p>
+<p>
+</p>
+<hr />
+<h1><a name="synopsis">SYNOPSIS</a></h1>
+<p>profile_set_op.pl -p1 &quot;profile_file1&quot; -p2 &quot;profile_file2&quot; -o &quot;operator&quot;</p>
+<pre>
+
+=head1 DESCRIPTION</pre>
+<p>This script is for some operations of profile file</p>
+<pre>
+
+=head1 ARGUMENTS</pre>
+<dl>
+<dt><strong><a name="help_h" class="item"><strong>--help|-h</strong></a></strong></dt>
+
+<dd>
+<p>Print this page</p>
+</dd>
+<dt><strong><a name="profile1_p1_profile_file1" class="item"><strong>--profile1|-p1 profile_file1</strong></a></strong></dt>
+
+<dd>
+<p>The first profile file.</p>
+</dd>
+<dt><strong><a name="profile2_p2_profile_file2" class="item"><strong>--profile2|-p2 profile_file2</strong></a></strong></dt>
+
+<dd>
+<p>The second profile file.</p>
+</dd>
+<dt><strong><a name="operator_o_string" class="item"><strong>--operator| -o string</strong></a></strong></dt>
+
+<dd>
+<p>This is the operation to be performed on the profile. These are</p>
+<pre>
+        and : print a list of taxid where this taxid is 1 in both the profile files
+        or      : print a list of taxid where the taxid is 1 in any of the profile. The taxid must be present in both the files.
+        sub     : print a list of taxid where is is present only in the first profile, regardless of the value
+        filter: print the taxon ids and the values of the first profile only when it is present in the second profile regardless of their values.</pre>
+</dd>
+<dt><strong><a name="all" class="item"><strong>--all</strong></a></strong></dt>
+
+<dd>
+<p>If given this flag for &quot;and&quot; or &quot;or&quot; operators the final list will include all the taxids in both the profiles with the resultset of the operations. Remember that all the resultset taxids will be set to 1 and these additional taxids will be set to 0, regardless of their original value in the files.</p>
+</dd>
+</dl>
+<pre>
+
+=head1 SEE ALSO</pre>
+<p>
+</p>
+<hr />
+<h1><a name="copyright">COPYRIGHT</a></h1>
+<p>Copyright (c) 2009 Malay K Basu &lt;<a href="mailto:malay@bioinformatics.org">malay@bioinformatics.org</a>&gt;</p>
+<p>
+</p>
+<hr />
+<h1><a name="authors">AUTHORS</a></h1>
+<p>Malay K Basu &lt;<a href="mailto:malay@bioinformatics.org">malay@bioinformatics.org</a>&gt;</p>
+
+</body>
+
+</html>

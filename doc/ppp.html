@@ -1,0 +1,185 @@
+<?xml version="1.0" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>ppp.pl - This is a parallel implementation of Partial Phylogenetic Profile algorithm, designed to run on on a compute cluster.</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rev="made" href="mailto:helpdesk@jcvi.org" />
+</head>
+
+<body style="background-color: white">
+
+
+<!-- INDEX BEGIN -->
+<div name="index">
+<p><a name="__index__"></a></p>
+
+<ul>
+
+	<li><a href="#name">NAME</a></li>
+	<li><a href="#synopsis">SYNOPSIS</a></li>
+	<li><a href="#description">DESCRIPTION</a></li>
+	<li><a href="#mandetory_options">MANDETORY OPTIONS</a></li>
+	<li><a href="#other_options">OTHER OPTIONS</a></li>
+	<li><a href="#copyright">COPYRIGHT</a></li>
+	<li><a href="#authors">AUTHORS</a></li>
+</ul>
+
+<hr name="index" />
+</div>
+<!-- INDEX END -->
+
+<p>
+</p>
+<h1><a name="name">NAME</a></h1>
+<p>ppp.pl - This is a parallel implementation of Partial Phylogenetic Profile (PPP) algorithm, designed to run on on a compute cluster.</p>
+<p>
+</p>
+<hr />
+<h1><a name="synopsis">SYNOPSIS</a></h1>
+<p>ppp.pl [options] -w workspace -d db_dir -t taxon -p profile &gt; result</p>
+<p>
+</p>
+<hr />
+<h1><a name="description">DESCRIPTION</a></h1>
+<p>The software runs PPP search on a particular genome. The genome is specified by NCBI taxon ID. It requires BLAST data is a specific mode to be present is a specific directory, called &quot;database directory&quot;. The directory structure is like this:</p>
+<pre>
+  /--|--blast
+     |   |---taxon_ID1/
+     |           |--GI_number_1.bla
+     |           |--GI_number_2.bla
+     |           |....
+     | 
+     |--desc
+   
+The specified directory should contain a subdirectory named &quot;blast&quot;. Under this subdirectory data for individual genomes are stored under their taxon ID. Each of these taxon ID directory should contain the BLAST result is a tabular format for individual GI for that genome.</pre>
+<p>It also requires a set of modules called SeqToolBox. You can download this modules from the software distribution FTP site: <a href="ftp://ftp.jcvi.org/pub/data/ppp/.">ftp://ftp.jcvi.org/pub/data/ppp/.</a> Or, email Malay (<a href="mailto:mbasu@jcvi.org">mbasu@jcvi.org</a>) for this module.</p>
+<p>Installation:</p>
+<p>The software is written using Perl. You need to install the following
+Perl modules to correctly use this software.</p>
+<pre>
+  1. Math::Cephes
+  2. Term::ProgressBar
+  3. DBD::SQLite
+  4. Bio::Perl (though not strictly needed for partial phylogenetic profile)</pre>
+<p>You can download and install these modules using standard perl installation.</p>
+<p>Once you have installed these modules, download SeqToolBox from this
+location.  <a href="ftp://ftp.jcvi.org/pub/data/ppp/software/seqtoolbox.">ftp://ftp.jcvi.org/pub/data/ppp/software/seqtoolbox.</a> Unzip it in
+any directory of your choice. Add the SeqToolBox/lib directory to your PERL5LIB paths.</p>
+<p>To use properly SeqToolBox, you need to create another directory where
+you will store the SeqToolBox databases. This directory should have
+atleast 1GB of space. Once you have created your directory, add it to
+an environment variable SEQTOOLBOXDB. If you are using bash, you can
+add this line to your .bash_profile export
+SEQTOOLBOXDB=/the_directory_I_have_created/. Now you should download
+the file,
+<a href="ftp://ftp.jcvi.org/pub/data/ppp/seqtoolboxdb/seqtoolboxdb.tar.bz2">ftp://ftp.jcvi.org/pub/data/ppp/seqtoolboxdb/seqtoolboxdb.tar.bz2</a>
+to this directory and unzip it:</p>
+<p>cd /the_directory_i_have_created
+wget <a href="ftp://ftp.jcvi.org/pub/data/ppp/seqtoolboxdb/seqtoolboxdb.tar.bz2">ftp://ftp.jcvi.org/pub/data/ppp/seqtoolboxdb/seqtoolboxdb.tar.bz2</a>
+tar -xvjf seqtoolboxdb.tar.bz2</p>
+<p>Now you have to download the PPP databases and set it up. You should
+create another directory of your choice. The space required varies
+depending on how many genomes you'd like to search. Once you have
+created your directory create two subdirectories under it, desc and blast. 
+The directory structure will be like this:</p>
+<pre>
+  ppp_dir
+          desc
+          blast</pre>
+<p>cd ppp_dir/desc
+wget <a href="ftp://ftp.jcvi.org/pub/data/ppp/pppdb/desc/gi_desc.sqlite3.bz2">ftp://ftp.jcvi.org/pub/data/ppp/pppdb/desc/gi_desc.sqlite3.bz2</a>
+tar -xvjf gi_desc.sqlite3.bz2</p>
+<p>The last but one step of the PPP search is to find the genome you are
+interested in. The database with the software comes with ~1400
+complete or partial genomes. If you have the taxon id you can download the specific genomes by,</p>
+<p>cd ppp_dir/blast
+wget <a href="ftp://ftp.jcvi.org/pub/data/ppp/pppdb/blast/taxon_id.tar.bz2">ftp://ftp.jcvi.org/pub/data/ppp/pppdb/blast/taxon_id.tar.bz2</a> (replace the taxon_id of your choice)
+tar -xvjf taxon_id.tar.bz2</p>
+<p>The last step of the installation process in to download the ppp
+software itself. Create a directory of your choice. Download the
+latest version of the software from
+<a href="ftp://ftp.jcvi.org/pub/data/ppp/software/phyloprof/">ftp://ftp.jcvi.org/pub/data/ppp/software/phyloprof/</a> in this
+directory. Unzip it and put the lib directory in your PERL5LIB path.</p>
+<p>Now you have completed the installation.</p>
+<p>
+</p>
+<hr />
+<h1><a name="mandetory_options">MANDETORY OPTIONS</a></h1>
+<dl>
+<dt><strong><a name="d_db_path" class="item"><strong>-d | --db path</strong></a></strong></dt>
+
+<dd>
+<p>The data directory created as mentioned above.</p>
+</dd>
+<dt><strong><a name="p_profile" class="item"><strong>-p | --profile</strong></a></strong></dt>
+
+<dd>
+<p>A profile file with format as shown below:</p>
+<pre>
+ tax_id 1
+ tax_id 0
+...</pre>
+<p>This profile file will be searched against the database.</p>
+</dd>
+<dt><strong><a name="t_taxon_ncbi_taxon_id" class="item"><strong>-t | --taxon ncbi_taxon_id</strong></a></strong></dt>
+
+<dd>
+<p>NCBI taxon id for the genome that will be searched for the profile. The BLAST result files should be present in the directory shown above.</p>
+</dd>
+</dl>
+<p>
+</p>
+<hr />
+<h1><a name="other_options">OTHER OPTIONS</a></h1>
+<dl>
+<dt><strong><a name="h_help" class="item"><strong>-h | --help</strong></a></strong></dt>
+
+<dd>
+<p>Print this help page.</p>
+</dd>
+<dt><strong><a name="serial" class="item"><strong>--serial</strong></a></strong></dt>
+
+<dd>
+<p>Runs the software without any thread in serial mode. Can take a long time. Use it for only debugging purpose.</p>
+</dd>
+<dt><strong><a name="threads_interger" class="item"><strong>--threads interger</strong></a></strong></dt>
+
+<dd>
+<p>You can run the software in parellel mode, if you have multicore processor. If you have a quad-core machine put 4 as the parameter. Default 1.</p>
+</dd>
+<dt><strong><a name="l_level_taxonomic_level" class="item"><strong>-l | --level taxonomic_level</strong></a></strong></dt>
+
+<dd>
+<p>The taxonomic level that should be searched; family, genus, species, etc. Any taxonomic rank as understood by NCBI taxonomy database can be used. The default is to do the search as taxon id level.</p>
+</dd>
+<dt><strong><a name="prob_probability" class="item"><strong>--prob probability</strong></a></strong></dt>
+
+<dd>
+<p>This is the probabliity for the PPP algorithm. The default is to calculate the probablity from the the given profile.</p>
+</dd>
+<dt><strong><a name="slope_m_fraction" class="item"><strong>--slope| -m fraction</strong></a></strong></dt>
+
+<dd>
+<p>If given this is percentage difference that will be used to find a cutoff in the output. The output will be marked when the difference between the present score and the previous score is highter than this parameter. If not given the score for all the proteins in the genome is given in descending order without any marking.</p>
+</dd>
+<dt><strong><a name="keep_k" class="item"><strong>--keep | -k </strong></a></strong></dt>
+
+<dd>
+<p>If given, keep the temporary files under directory 'tmp~'.</p>
+</dd>
+</dl>
+<p>
+</p>
+<hr />
+<h1><a name="copyright">COPYRIGHT</a></h1>
+<p>Copyright (c) 2009 Malay K Basu</p>
+<p>
+</p>
+<hr />
+<h1><a name="authors">AUTHORS</a></h1>
+<p>Malay K Basu &lt;<a href="mailto:mbasu@jcvi.org">mbasu@jcvi.org</a>&gt;</p>
+
+</body>
+
+</html>

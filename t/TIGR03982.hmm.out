@@ -1,0 +1,197 @@
+# hmmsearch :: search profile HMM(s) against a sequence database
+# HMMER 3.0b2 (June 2009); http://hmmer.org/
+# Copyright (C) 2009 Howard Hughes Medical Institute.
+# Freely distributed under the GNU General Public License (GPLv3).
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+# query HMM file:                  /usr/local/scratch/malay/hmmer3/hmm3/TIGR03982.HMM
+# target sequence database:        /usr/local/scratch/malay/hmmer3/nr
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Query:       TIGR03982  [M=117]
+Accession:   TIGR03982
+Description: conserved hypothetical protein TIGR03982
+Scores for complete sequences (score includes all domains):
+   --- full sequence ---   --- best 1 domain ---    -#dom-
+    E-value  score  bias    E-value  score  bias    exp  N  Sequence                             Description
+    ------- ------ -----    ------- ------ -----   ---- --  --------                             -----------
+    1.9e-65  227.4   1.1    2.1e-65  227.2   0.7    1.0  1  gi|28900300|ref|NP_799955.1|         hypothetical protein VPA0445 [Vi
+    3.6e-65  226.5   0.5      4e-65  226.3   0.4    1.0  1  gi|149377802|ref|ZP_01895534.1|      hypothetical protein MDG893_1312
+    3.9e-65  226.3   0.2    4.3e-65  226.2   0.1    1.0  1  gi|152996270|ref|YP_001341105.1|     hypothetical protein Mmwyl1_2248
+    3.8e-44  158.6   0.5    4.2e-44  158.5   0.4    1.0  1  gi|153838941|ref|ZP_01991608.1|      conserved hypothetical protein [
+  ------ inclusion threshold ------
+       0.14   21.4   0.2       0.22   20.7   0.1    1.3  1  gi|284039627|ref|YP_003389557.1|     RNA polymerase, sigma-24 subunit
+          3   17.1   0.2        9.2   15.5   0.1    1.9  1  gi|294496591|ref|YP_003543084.1|     S-layer-related duplication doma
+        3.6   16.8   0.1        5.4   16.3   0.0    1.2  1  gi|121722586|gb|ABM64783.1|          cell wall glycosidase [Linum usi
+        4.8   16.4   0.2         32   13.8   0.1    2.3  2  gi|89891270|ref|ZP_01202777.1|       hypothetical protein BBFL7_02140
+        5.1   16.3   0.0        5.2   16.3   0.0    1.0  1  gi|119357973|ref|YP_912617.1|        hypothetical protein Cpha266_219
+        6.6   16.0   0.1        8.2   15.7   0.0    1.1  1  gi|90411301|ref|ZP_01219313.1|       hypothetical protein P3TCK_10778
+
+
+Domain and alignment annotation for each sequence:
+>> gi|28900300|ref|NP_799955.1|  hypothetical protein VPA0445 [Vibrio parahaemolyticus RIMD 2210633]gi|260364348|ref|ZP
+   #    score  bias  c-Evalue  i-Evalue hmmfrom  hmm to    alifrom  ali to    envfrom  env to     acc
+ ---   ------ ----- --------- --------- ------- -------    ------- -------    ------- -------    ----
+   1 !  227.2   0.7   1.7e-71   2.1e-65       1     117 []       2     118 .]       2     118 .] 1.00
+
+  Alignments for each domain:
+  == domain 1    score: 227.2 bits;  conditional E-value: 1.7e-71
+                     TIGR03982   1 ktvfyvvvavfciawvgknivapafaylyykdkyielaaqcanamdetwfieqkgsdtlnktakvhllacheydktrkiml 81 
+                                   k+vfy++++++ciaw+g+++v+p+fay+yyk++++e++a+c++amdetw+ieq +s+tln+takvhllacheydktrkiml
+  gi|28900300|ref|NP_799955.1|   2 KRVFYFIISLCCIAWIGIYVVSPVFAYFYYKNQFMEQTAECSLAMDETWYIEQLESNTLNQTAKVHLLACHEYDKTRKIML 82 
+                                   89******************************************************************************* PP
+
+                     TIGR03982  82 alglsedvlaylglkaleveqrsveelveqhrfrer 117
+                                   a++++e+vl+ylgl+a+e++qrs+e+l+eqhrfrer
+  gi|28900300|ref|NP_799955.1|  83 AMRVPESVLGYLGLEAIELHQRSIEPLIEQHRFRER 118
+                                   ***********************************8 PP
+
+>> gi|149377802|ref|ZP_01895534.1|  hypothetical protein MDG893_13129 [Marinobacter algicola DG893]gi|149357917|gb|EDM4
+   #    score  bias  c-Evalue  i-Evalue hmmfrom  hmm to    alifrom  ali to    envfrom  env to     acc
+ ---   ------ ----- --------- --------- ------- -------    ------- -------    ------- -------    ----
+   1 !  226.3   0.4   3.4e-71     4e-65       1     117 []       3     119 .]       3     119 .] 1.00
+
+  Alignments for each domain:
+  == domain 1    score: 226.3 bits;  conditional E-value: 3.4e-71
+                        TIGR03982   1 ktvfyvvvavfciawvgknivapafaylyykdkyielaaqcanamdetwfieqkgsdtlnktakvhllacheydktrk 78 
+                                      ktvf+vvv+vfci+wvgknivapa+ay+y++++y++la+qcanamdetwf+eq+gsd+l+++a+vhl++cheydktrk
+  gi|149377802|ref|ZP_01895534.1|   3 KTVFQVVVIVFCITWVGKNIVAPAAAYFYFQGDYKRLASQCANAMDETWFAEQEGSDELKQSAEVHLMVCHEYDKTRK 80 
+                                      89**************************************************************************** PP
+
+                        TIGR03982  79 imlalglsedvlaylglkaleveqrsveelveqhrfrer 117
+                                      +ml++glse+vlaylglkale+eq++v++lveqhrfrer
+  gi|149377802|ref|ZP_01895534.1|  81 VMLVMGLSENVLAYLGLKALETEQQPVSRLVEQHRFRER 119
+                                      **************************************8 PP
+
+>> gi|152996270|ref|YP_001341105.1|  hypothetical protein Mmwyl1_2248 [Marinomonas sp. MWYL1]gi|150837194|gb|ABR71170.1
+   #    score  bias  c-Evalue  i-Evalue hmmfrom  hmm to    alifrom  ali to    envfrom  env to     acc
+ ---   ------ ----- --------- --------- ------- -------    ------- -------    ------- -------    ----
+   1 !  226.2   0.1   3.7e-71   4.3e-65       1     117 []       3     119 .]       3     119 .] 1.00
+
+  Alignments for each domain:
+  == domain 1    score: 226.2 bits;  conditional E-value: 3.7e-71
+                         TIGR03982   1 ktvfyvvvavfciawvgknivapafaylyykdkyielaaqcanamdetwfieqkgsdtlnktakvhllacheydktr 77 
+                                       kt+fy++va+fc++w+gkni+ap++ayl+y+dkyi+la+qcanamdetwfieqkg+dtlnkta++hll+cheyd+tr
+  gi|152996270|ref|YP_001341105.1|   3 KTIFYAGVAIFCFSWTGKNIIAPGYAYLLYSDKYIYLAGQCANAMDETWFIEQKGNDTLNKTAQIHLLSCHEYDVTR 79 
+                                       89*************************************************************************** PP
+
+                         TIGR03982  78 kimlalglsedvlaylglkaleveqrsveelveqhrfrer 117
+                                       kiml+lgl+edvl+ylgl+alev+qrs+ee+v+qhrf+er
+  gi|152996270|ref|YP_001341105.1|  80 KIMLSLGLNEDVLSYLGLRALEVHQRSTEEFVQQHRFNER 119
+                                       ***************************************8 PP
+
+>> gi|153838941|ref|ZP_01991608.1|  conserved hypothetical protein [Vibrio parahaemolyticus AQ3810]gi|149747575|gb|EDM5
+   #    score  bias  c-Evalue  i-Evalue hmmfrom  hmm to    alifrom  ali to    envfrom  env to     acc
+ ---   ------ ----- --------- --------- ------- -------    ------- -------    ------- -------    ----
+   1 !  158.5   0.4   3.5e-50   4.2e-44      35     117 .]       1      83 []       1      83 [] 0.99
+
+  Alignments for each domain:
+  == domain 1    score: 158.5 bits;  conditional E-value: 3.5e-50
+                        TIGR03982  35 ielaaqcanamdetwfieqkgsdtlnktakvhllacheydktrkimlalglsedvlaylglkaleveqrsveelveqh 112
+                                      +e++a+c++amdetw+ieq +s+tln+takvhllacheydktrkimla++++e+vl+ylgl+a+e++qrs+e+l+eqh
+  gi|153838941|ref|ZP_01991608.1|   1 MEQTAECSLAMDETWYIEQLESNTLNQTAKVHLLACHEYDKTRKIMLAMRVPESVLGYLGLEAIELHQRSIEPLIEQH 78 
+                                      689*************************************************************************** PP
+
+                        TIGR03982 113 rfrer 117
+                                      rfrer
+  gi|153838941|ref|ZP_01991608.1|  79 RFRER 83 
+                                      ****8 PP
+
+>> gi|284039627|ref|YP_003389557.1|  RNA polymerase, sigma-24 subunit, ECF subfamily [Spirosoma linguale DSM 74]gi|2838
+   #    score  bias  c-Evalue  i-Evalue hmmfrom  hmm to    alifrom  ali to    envfrom  env to     acc
+ ---   ------ ----- --------- --------- ------- -------    ------- -------    ------- -------    ----
+   1 ?   20.7   0.1   1.9e-07      0.22       6      99 ..      77     172 ..      73     181 .. 0.83
+
+  Alignments for each domain:
+  == domain 1    score: 20.7 bits;  conditional E-value: 1.9e-07
+                         TIGR03982   6 vvvavfciawvgknivapafaylyykd.kyielaaqcanamdetw.fieqkgsdtlnktakvhllacheydktrkim 80 
+                                         v   ci  +   +v   +a + y++ +    a++  + +de    +eq+ +d  +kt ++  l   ey+  + i 
+  gi|284039627|ref|YP_003389557.1|  77 TAVRYACINHIKSALVKEKYADYAYDHyNDASYATDEQLDLDELMdAVEQQLNDLPEKTRQIFRLNRLEYQSVKEIS 153
+                                       567889***********99997777541334567788889999763689**************************** PP
+
+                         TIGR03982  81 lalglsedvlaylglkale 99 
+                                        +l+++e  + y   +a++
+  gi|284039627|ref|YP_003389557.1| 154 TSLKVPERTVEYHISQAIK 172
+                                       **********998777765 PP
+
+>> gi|294496591|ref|YP_003543084.1|  S-layer-related duplication domain protein [Methanohalophilus mahii DSM 5219]gi|29
+   #    score  bias  c-Evalue  i-Evalue hmmfrom  hmm to    alifrom  ali to    envfrom  env to     acc
+ ---   ------ ----- --------- --------- ------- -------    ------- -------    ------- -------    ----
+   1 ?   15.5   0.1   7.7e-06       9.2      26      74 ..     224     272 ..     218     297 .. 0.88
+
+  Alignments for each domain:
+  == domain 1    score: 15.5 bits;  conditional E-value: 7.7e-06
+                         TIGR03982  26 aylyykdkyielaaqcanamdetwfieqkgsdtlnktakvhllacheyd 74 
+                                        ++ y d+  + +++c   +  tw i++++  t+++  kv ll c e  
+  gi|294496591|ref|YP_003543084.1| 224 YFVTYIDETFRCSSECFAIFKYTWLIDKDNVSTIEEGDKVGLLKCREIS 272
+                                       45579999999**********************************9975 PP
+
+>> gi|121722586|gb|ABM64783.1|  cell wall glycosidase [Linum usitatissimum]
+   #    score  bias  c-Evalue  i-Evalue hmmfrom  hmm to    alifrom  ali to    envfrom  env to     acc
+ ---   ------ ----- --------- --------- ------- -------    ------- -------    ------- -------    ----
+   1 ?   16.3   0.0   4.6e-06       5.4      18      63 ..      34      79 ..      29      85 .. 0.86
+
+  Alignments for each domain:
+  == domain 1    score: 16.3 bits;  conditional E-value: 4.6e-06
+                    TIGR03982 18 knivapafaylyykdkyielaaqcanamdetwfieqkgsdtlnkta 63
+                                  +++a ++ay +yk+ky + +a+   ++   wf+   +s +  ++a
+  gi|121722586|gb|ABM64783.1| 34 NQLLAHSAAYHLYKNKYPQHTAEIGITLVTHWFVPYSNSSEDMDAA 79
+                                 5678999***************************988887765555 PP
+
+>> gi|89891270|ref|ZP_01202777.1|  hypothetical protein BBFL7_02140 [Flavobacteria bacterium BBFL7]gi|89516582|gb|EAS19
+   #    score  bias  c-Evalue  i-Evalue hmmfrom  hmm to    alifrom  ali to    envfrom  env to     acc
+ ---   ------ ----- --------- --------- ------- -------    ------- -------    ------- -------    ----
+   1 ?   13.8   0.1   2.7e-05        32      53     116 ..      61     126 ..      53     127 .. 0.80
+   2 ?   -0.7   0.0      0.81   9.6e+05      92     106 ..     365     379 ..     307     384 .. 0.75
+
+  Alignments for each domain:
+  == domain 1    score: 13.8 bits;  conditional E-value: 2.7e-05
+                       TIGR03982  53 qkgsdtlnktakvhllacheydktrkiml...alglsedvlaylglkaleveqrsv.eelveqhrfre 116
+                                     q +s  + + a++  l    yd+t ki     a+ l e+vl    +k  e  +rs+ + +++qhrf+e
+  gi|89891270|ref|ZP_01202777.1|  61 Q-DSTRVVQMARLAALNNQLYDVTGKINYldqAVSLREKVLQRTAIKP-ESARRSLaQLYIKQHRFKE 126
+                                     3.566788999***************9743448999********9998.555666515579*****98 PP
+
+  == domain 2    score: -0.7 bits;  conditional E-value: 0.81
+                       TIGR03982  92 ylglkaleveqrsve 106
+                                      +  kale++q+ v+
+  gi|89891270|ref|ZP_01202777.1| 365 NMPTKALETHQQFVQ 379
+                                     455689999998775 PP
+
+>> gi|119357973|ref|YP_912617.1|  hypothetical protein Cpha266_2190 [Chlorobium phaeobacteroides DSM 266]gi|119355322|g
+   #    score  bias  c-Evalue  i-Evalue hmmfrom  hmm to    alifrom  ali to    envfrom  env to     acc
+ ---   ------ ----- --------- --------- ------- -------    ------- -------    ------- -------    ----
+   1 ?   16.3   0.0   4.4e-06       5.2      24      75 ..       3      59 ..       1      63 [] 0.80
+
+  Alignments for each domain:
+  == domain 1    score: 16.3 bits;  conditional E-value: 4.4e-06
+                      TIGR03982 24 afaylyykdkyi...elaaqcanamdetwfieq..kgsdtlnktakvhllacheydk 75
+                                   ++ y+++ +++i      + c+  m++  f e   +++d ++++ k  l+ac   d+
+  gi|119357973|ref|YP_912617.1|  3 VIVYFLFANRFIlpnDSHNPCSFRMNKKHFSELhvEDNDGMQQAFKAELMACLLIDR 59
+                                   678********833234567**********9962268999************87776 PP
+
+>> gi|90411301|ref|ZP_01219313.1|  hypothetical protein P3TCK_10778 [Photobacterium profundum 3TCK]gi|90327830|gb|EAS44
+   #    score  bias  c-Evalue  i-Evalue hmmfrom  hmm to    alifrom  ali to    envfrom  env to     acc
+ ---   ------ ----- --------- --------- ------- -------    ------- -------    ------- -------    ----
+   1 ?   15.7   0.0   6.9e-06       8.2      51     112 ..      11      73 ..       5      78 .. 0.92
+
+  Alignments for each domain:
+  == domain 1    score: 15.7 bits;  conditional E-value: 6.9e-06
+                       TIGR03982  51 ieqkgsdtlnktakvhllacheydktrkimlalglsedvlayl.glkaleveqrsveelveqh 112
+                                     i+q +++  + +ak+  la  eyd t  +  a g +e  ++y   l+ ++  +++ e+lv q+
+  gi|90411301|ref|ZP_01219313.1|  11 INQLDDEYSKMAAKMRDLAIREYDCTEFVATAEGSQEIAISYWdNLEHIKAWKQNAEHLVAQK 73 
+                                     67889999999*******************************8469**************996 PP
+
+
+
+Internal pipeline statistics summary:
+-------------------------------------
+Query model(s):                            1  (117 nodes)
+Target sequences:                   11833178  (4040378175 residues)
+Passed MSV filter:                    250952  (0.0212075); expected 236663.6 (0.02)
+Passed bias filter:                   207498  (0.0175353); expected 236663.6 (0.02)
+Passed Vit filter:                     13256  (0.00112024); expected 11833.2 (0.001)
+Passed Fwd filter:                       262  (2.21411e-05); expected 118.3 (1e-05)
+Initial search space (Z):           11833178  [actual number of targets]
+Domain search space  (domZ):              10  [number of targets reported over threshold]
+# CPU time: 109.87u 3.32s 00:01:53.19 Elapsed: 00:01:55
+# Mc/sec: 4302.58
+//

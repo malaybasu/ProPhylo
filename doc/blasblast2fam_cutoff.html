@@ -1,0 +1,120 @@
+<?xml version="1.0" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>blast2fam_cutoff.pl - Script to stastically determine the BLAST e-value cutoff point for a protein family.</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rev="made" href="mailto:helpdesk@jcvi.org" />
+</head>
+
+<body style="background-color: white">
+
+
+<!-- INDEX BEGIN -->
+<div name="index">
+<p><a name="__index__"></a></p>
+
+<ul>
+
+	<li><a href="#name">NAME</a></li>
+	<li><a href="#synopsis">SYNOPSIS</a></li>
+	<li><a href="#description">DESCRIPTION</a></li>
+	<li><a href="#options">OPTIONS</a></li>
+	<li><a href="#see_also">SEE ALSO</a></li>
+	<li><a href="#copyright">COPYRIGHT</a></li>
+	<li><a href="#authors">AUTHORS</a></li>
+</ul>
+
+<hr name="index" />
+</div>
+<!-- INDEX END -->
+
+<p>
+</p>
+<h1><a name="name">NAME</a></h1>
+<p>blast2fam_cutoff.pl - Script to stastically determine the BLAST e-value cutoff point for a protein family.</p>
+<p>
+</p>
+<hr />
+<h1><a name="synopsis">SYNOPSIS</a></h1>
+<p>blast2fam_cutoff.pl [options] -o OUTFILE</p>
+<pre>
+        Example:
+        
+        source /usr/local/projects/TUNE/malay/Phyloprof/settings.bsh
+    blast2fam_cutoff.pl \
+    -i /usr/local/archive/projects/PPP/split_genomes/blast/146891/161353818.bla \
+    -d /usr/local/archive/projects/PPP/split_genomes/blastdb/all.peptides.fa \
+    -s 1 \
+    -m &quot;O_&quot; \
+    -o test_cut.out \
+    -n 2</pre>
+<p>
+</p>
+<hr />
+<h1><a name="description">DESCRIPTION</a></h1>
+<p>Given a blast result file, the program calls some R function to decompose the BLAST result file into three possion distributions. The program uses FLEXMIX package for R. Once decomposed the program takes the top group starting from the lowest e-value.</p>
+<p>
+</p>
+<hr />
+<h1><a name="options">OPTIONS</a></h1>
+<dl>
+<dt><strong><a name="input_i_file" class="item"><strong>--input|-i FILE</strong></a></strong></dt>
+
+<dd>
+<p>The file name for the BLAST result file. This input file should have a particular structure. The program is designed to operate on the blast result file created for &quot;ppp_grid&quot; software. If you are creating your own file follow this format.</p>
+<pre>
+
+        foo&lt;tab&gt;gi&lt;tab&gt;&lt;e-value&gt;&lt;tab&gt;bar</pre>
+<pre>
+
+        The program ignores column 1 and 4. Those can be anything. As long as the tab structure is maintained.</pre>
+<pre>
+        For e.g.
+        Foo&lt;tab&gt;gi|12345&lt;tab&gt;10e-10&lt;tab&gt;bar</pre>
+</dd>
+<dt><strong><a name="db_d_blast_database" class="item"><strong>--db | -d BLAST_DATABASE</strong></a></strong></dt>
+
+<dd>
+<p>This is a database created using formatdb with -o option set. That means the database should be indexed.</p>
+</dd>
+<dt><strong><a name="fasta_s_1_0" class="item"><strong>--fasta | -s [1|0]</strong></a></strong></dt>
+
+<dd>
+<p>To create a fasta file with the required group or not.</p>
+</dd>
+<dt><strong><a name="mark_m_string" class="item"><strong>--mark | -m STRING</strong></a></strong></dt>
+
+<dd>
+<p>If set these string will be prepended to all sequences NOT belonging to the family, i.e. the outgroup.</p>
+</dd>
+<dt><strong><a name="output_o_file" class="item"><strong>--output | -o FILE</strong></a></strong></dt>
+
+<dd>
+<p>This is the output file that will be created. Otherwise the output is redirected to STDOUT.</p>
+</dd>
+<dt><strong><a name="numout_n_integer" class="item"><strong>--numout | -n integer</strong></a></strong></dt>
+
+<dd>
+<p>This is the number of outgroup sequences (not beloging to the family) that should be included in the output.</p>
+</dd>
+</dl>
+<p>
+</p>
+<hr />
+<h1><a name="see_also">SEE ALSO</a></h1>
+<p>PPP_GRID</p>
+<p>
+</p>
+<hr />
+<h1><a name="copyright">COPYRIGHT</a></h1>
+<p>Copyright (c) 2009 Malay K Basu &lt;<a href="mailto:malay@bioinformatics.org">malay@bioinformatics.org</a>&gt;</p>
+<p>
+</p>
+<hr />
+<h1><a name="authors">AUTHORS</a></h1>
+<p>Malay K Basu &lt;<a href="mailto:malay@bioinformatics.org">malay@bioinformatics.org</a>&gt;</p>
+
+</body>
+
+</html>

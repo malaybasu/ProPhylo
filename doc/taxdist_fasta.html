@@ -1,0 +1,80 @@
+<?xml version="1.0" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>taxdist_fasta.pl - Create taxonomic distribution from a fasta file.</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rev="made" href="mailto:helpdesk@jcvi.org" />
+</head>
+
+<body style="background-color: white">
+
+
+<!-- INDEX BEGIN -->
+<div name="index">
+<p><a name="__index__"></a></p>
+
+<ul>
+
+	<li><a href="#name">NAME</a></li>
+	<li><a href="#synopsis">SYNOPSIS</a></li>
+	<li><a href="#description">DESCRIPTION</a></li>
+	<li><a href="#installation">INSTALLATION</a></li>
+	<li><a href="#arguments">ARGUMENTS</a></li>
+	<li><a href="#copyright">COPYRIGHT</a></li>
+	<li><a href="#authors">AUTHORS</a></li>
+</ul>
+
+<hr name="index" />
+</div>
+<!-- INDEX END -->
+
+<p>
+</p>
+<h1><a name="name">NAME</a></h1>
+<p>taxdist_fasta.pl - Create taxonomic distribution from a fasta file.</p>
+<p>
+</p>
+<hr />
+<h1><a name="synopsis">SYNOPSIS</a></h1>
+<p>taxdist_fasta.pl [options]</p>
+<p>
+</p>
+<hr />
+<h1><a name="description">DESCRIPTION</a></h1>
+<p>This script search a fasta database to create a distribution of taxons in it.  The output file should be one of the input for hmm2profile.pl for creating a complete distribution list.</p>
+<p>
+</p>
+<hr />
+<h1><a name="installation">INSTALLATION</a></h1>
+<p>You need  Malay's SeqToolBox to run this script. If your ProPhylo distribution did not come with this library then contact Malay (<a href="mailto:mbasu@jcvi.org">mbasu@jcvi.org</a>) for a copy of SeqToolBox. Unzip the modules in your PERL5LIB. You need to first set up the NCBI taxonomy database for using this script. For this set up an environment variable &quot;SEQTOOLBOXDB&quot; pointing to a directory that can store about ~1.5 GB of data. After setting up this enviornment variable, run install/update_taxonomy.pl script. This will create all the databases required for running this script.</p>
+<p>
+</p>
+<hr />
+<h1><a name="arguments">ARGUMENTS</a></h1>
+<dl>
+<dt><strong><a name="help_h" class="item"><strong>--help | -h</strong></a></strong></dt>
+
+<dd>
+<p>Print this help message.</p>
+</dd>
+<dt><strong><a name="file_f" class="item"><strong>--file | -f</strong></a></strong></dt>
+
+<dd>
+<p>The full path of fasta file.</p>
+</dd>
+</dl>
+<p>
+</p>
+<hr />
+<h1><a name="copyright">COPYRIGHT</a></h1>
+<p>Copyright (c) 2009 Malay K Basu &lt;<a href="mailto:malay@bioinformatics.org">malay@bioinformatics.org</a>&gt;.</p>
+<p>
+</p>
+<hr />
+<h1><a name="authors">AUTHORS</a></h1>
+<p>Malay K Basu &lt;<a href="mailto:malay@bioinformatics.org">malay@bioinformatics.org</a>&gt;</p>
+
+</body>
+
+</html>
