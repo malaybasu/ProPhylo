@@ -3,6 +3,7 @@ use strict;
 use File::Spec;
 use Carp;
 use SeqToolBox::Taxonomy;
+use SeqToolBox::File;
 use File::Path qw(make_path);
 use File::Spec;
 
@@ -20,7 +21,8 @@ make_path ($blast_dir);
 
 $db_dir = $blast_dir;
 
-open( my $infile, $file ) || croak "Can't open $file\n";
+# open( my $infile, $file ) || croak "Can't open $file\n";
+my $infile = SeqToolBox::File->new($file)->get_fh();
 
 my $taxonomy = SeqToolBox::Taxonomy->new();
 my $last_outfile;
@@ -64,15 +66,15 @@ while ( my $line = <$infile> ) {
 	unless ( -d $out_dir ) {
 		mkdir($out_dir) || die "$out_dir i$!";
 	}
-	
+
 	my $taxon_class;
 	eval {
 	 $taxon_class = $taxonomy->get_taxon($s_gi);
 	};
 	warn $@ if $@;
-	
+
 	next unless $taxon_class;
-	
+
 	my $outfile = File::Spec->catfile( $out_dir, $q_gi . '.bla' );
 
 	#	my $out;
