@@ -27,11 +27,11 @@ ppp_grid.pl [options] -w workspace -d db_dir -t taxon -p profile > result
 
 The software runs PPP searches on any artibitrary sets of FASTA files. It runs BLAST in lazy mode: as and when required. It requires data is a specific mode to be present is a specific directory, called "database directory". The directory structure is like this:
 
- /-------ncbi_taxon_id.fas 
+ /-------ncbi_taxon_id.fas
   	|---blast
 	|---blastdb
            |---<all.peptides.fa>
-      
+
 Where, "ncbi_taxon_id.fas" is a fasta file contatining the all the peptides from a particular genome. The filename should be like this: 12345.fas. You should have a fasta file contating every protein sequence that you would like to search, and name the file as "all.peptides.fa". Run formatdb on this file, and dump all the resulting files into a directory called "blastdb" under this directory. This file should have properly formatted NCBI GIs.
 
 The software runs on on Sun Grid Engine (SGE). It also requires a set of modules classed SeqToolBox. Email Malay (mbasu@jcvi.org) for these modules.
@@ -82,12 +82,12 @@ NCBI taxon id for the genome that will be searched for the profile. The fasta fi
 
 =item B<-l | --level taxonomic_level>
 
-The taxonomic level that should be searched; family, genus, species, etc. Any taxonomic rank as understood by NCBI taxonomy database can be used. The default is to do the search as taxon id level. 
+The taxonomic level that should be searched; family, genus, species, etc. Any taxonomic rank as understood by NCBI taxonomy database can be used. The default is to do the search as taxon id level.
 
 =item B<--prob probability>
 
 This is the probabliity for the PPP algorithm. The default is to calculate the probablity from the the given profile.
-	
+
 =item B<-h | --help>
 Print this help page.
 
@@ -366,6 +366,7 @@ sub launch_job {
 	open( LSF, "$LSF $lsf_options -o $log $command|" );
 
 	print STDERR "\n$LSF $lsf_options -o $log $command|\n";
+
 	$total_job++;
 
 	while ( my $line = <LSF> ) {
@@ -630,6 +631,7 @@ sub parrellel_split_blast {
 		my $fullname = File::Spec->catfile( $blast_dir,           $file );
 		my $log_name = File::Spec->catfile( $split_blast_log_dir, $file.".log");
 		my $full_command = "$parse_command $fullname $split_blast_dir";
+		print STDERR "$full_command\n";
 
 		#print STDERR "Command: $full_command \n";
 		#$full_command .= $fullname;
@@ -649,6 +651,7 @@ sub parrellel_split_blast {
 
 	while ( my $taxon = readdir($s_b) ) {
 		if (!($taxon=~/\./)){
+
 		my $source_dir = File::Spec->catdir( $split_blast_dir, $taxon );
 		unless ( -d $source_dir ) {
 			next;
@@ -662,9 +665,10 @@ sub parrellel_split_blast {
 			mkdir($out_dir) || die "$!";
 		}
 
-		
 
 		print STDERR "Syncing data to archive...\n";
+
+		print STDERR "rsync -a $source_dir $out_dir\n";
 		system("rsync -a $source_dir $out_dir") == 0
 			or croak
 			"Could not sync $source_dir and $out_dir\n";
@@ -748,4 +752,3 @@ sub get_temp_dir_name {
 #}
 
 exit(0);
-
