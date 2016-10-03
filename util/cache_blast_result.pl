@@ -22,13 +22,14 @@ make_path ($blast_dir);
 $db_dir = $blast_dir;
 
 # open( my $infile, $file ) || croak "Can't open $file\n";
-my $infile = SeqToolBox::File->new($file)->get_fh();
+my $infile = SeqToolBox::File->new($file);
+my $getinfile= $infile->get_fh();
 
 my $taxonomy = SeqToolBox::Taxonomy->new();
 my $last_outfile;
 my $out;
 
-while ( my $line = <$infile> ) {
+while ( my $line = <$getinfile> ) {
 	next if $line =~ /^\#/;
 	chomp $line;
 	my @f = split( /\t/, $line );
