@@ -626,7 +626,7 @@ sub parrellel_split_blast {
 	my $parse_command = "perl $FindBin::Bin/cache_blast_result.pl ";
 
 	while ( my $file = readdir($bdir) ) {
-		next unless $file =~ /\.bla$/;
+		# next unless $file =~ /\.bla$/;
 		my $fullname = File::Spec->catfile( $blast_dir,           $file );
 		my $log_name = File::Spec->catfile( $split_blast_log_dir, $file.".log");
 		my $full_command = "$parse_command $fullname $split_blast_dir";
