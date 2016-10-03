@@ -162,7 +162,8 @@ my $blastdb      = "";
 my $output       = "";
 my $NP           = 1000;
 my $LSF          = "qsub";
-my $LSF_OPTIONS  = "-b y -j y -V -P 0380";
+# my $LSF_OPTIONS  = "-b y -j y -V -P 0380";
+my $LSF_OPTIONS  = "-b y -j y -V ";
 my $engine       = "SGE";
 my $SGE_version  = 5;
 my $probability  = 0;
@@ -361,7 +362,10 @@ sub launch_job {
 	#		$lsf_options .= ' -m "' . $s . ' others+2"';
 	#
 	#	}
-	open( LSF, "$LSF $lsf_options -o $log -l fast $command|" );
+	# open( LSF, "$LSF $lsf_options -o $log -l fast $command|" );
+	open( LSF, "$LSF $lsf_options -o $log $command|" );
+
+	print STDERR "\n$LSF $lsf_options -o $log $command|\n";
 	$total_job++;
 
 	while ( my $line = <LSF> ) {
