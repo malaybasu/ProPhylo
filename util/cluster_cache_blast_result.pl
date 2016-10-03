@@ -595,7 +595,7 @@ sub parrellel_split_blast {
 	print STDERR "Caching BLAST data over grid\n";
 
 	#	my $taxon     = shift;
-	my $blast_dir = File::Spec->catdir( $tmp_dir, "blast", "output" );
+	my $blast_dir = File::Spec->catdir( $tmp_dir, "blast_output" );
 
 	unless ( -d $blast_dir ) {
 		croak "Could not file $blast_dir\n";
@@ -603,7 +603,7 @@ sub parrellel_split_blast {
 
 	my $split_blast_dir = File::Spec->catdir( $tmp_dir, "split_blast" );
 	my $split_blast_log_dir
-		= File::Spec->catdir( $tmp_dir, "blast", "split_output_log" );
+		= File::Spec->catdir( $tmp_dir, "split_blast_log" );
 
 	if ( -d $split_blast_dir ) {
 		system ("rm -rf $split_blast_dir") == 0
@@ -626,7 +626,7 @@ sub parrellel_split_blast {
 	while ( my $file = readdir($bdir) ) {
 		next unless $file =~ /\.bla$/;
 		my $fullname = File::Spec->catfile( $blast_dir,           $file );
-		my $log_name = File::Spec->catfile( $split_blast_log_dir, $file );
+		my $log_name = File::Spec->catfile( $split_blast_log_dir, $file.".log");
 		my $full_command = "$parse_command $fullname $split_blast_dir";
 
 		#print STDERR "Command: $full_command \n";
@@ -651,9 +651,10 @@ sub parrellel_split_blast {
 			next;
 		}
 		$source_dir .= '/';
-		
-		my $out_dir = File::Spec->catdir( $db_dir, 'blast', "$taxon" );
 
+		# my $out_dir = File::Spec->catdir( $db_dir, 'blast', "$taxon" );
+		my $out_dir = File::Spec->catdir( $db_dir, "$taxon" );
+		print STDERR "outdir: $out_dir\n";
 		unless ( -d $out_dir ) {
 			mkdir($out_dir) || die "$!";
 		}
