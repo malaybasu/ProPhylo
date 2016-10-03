@@ -142,21 +142,22 @@ if ($@) {
 }
 ##############################################
 
-my $db_dir    = '/usr/local/archive/projects/PPP/split_genomes';
-my $client    = 0;
+# my $db_dir    = '/usr/local/archive/projects/PPP/split_genomes';
+my $db_dir = '';
+# my $client    = 0;
 my $workspace = '';
 my $taxon;
-my $profile;
-my $level   = '';
+# my $profile;
+# my $level   = '';
 my $SGE     = "qsub -b y -j y -V";
-my $project = "0380";
-my $nodes   = 10;
+# my $project = "0380";
+# my $nodes   = 10;
 my $help;
-my $copy;
+# my $copy;
 my $file;
-my $program_name = File::Spec->catfile( $FindBin::Bin, 'ppp_grid.pl' );
-my $blast        = "";
-my $genome_dir   = "";
+# my $program_name = File::Spec->catfile( $FindBin::Bin, 'ppp_grid.pl' );
+# my $blast        = "";
+# my $genome_dir   = "";
 my $blastdb      = "";
 my $output       = "";
 my $NP           = 1000;
@@ -165,7 +166,7 @@ my $LSF_OPTIONS  = "-b y -j y -V -P 0380";
 my $engine       = "SGE";
 my $SGE_version  = 5;
 my $probability  = 0;
-my $serial       = 0;
+# my $serial       = 0;
 
 #print STDERR $program_name;
 
@@ -199,7 +200,7 @@ pod2usage( -verbose => 2 ) if $help;
 ######################## SERVER MODE ##################3
 
 my $tmp_dir   = get_temp_dir_name();
-my $ppp_dir   = File::Spec->catdir( $tmp_dir, 'ppp' );
+# my $ppp_dir   = File::Spec->catdir( $tmp_dir, 'ppp' );
 my $total_job = 0;
 my @jobs;
 my %pid_2_filename;
