@@ -648,6 +648,7 @@ sub parrellel_split_blast {
 		|| die "Can't open $split_blast_dir\n";
 
 	while ( my $taxon = readdir($s_b) ) {
+		if (!($taxon=~/\./)){
 		my $source_dir = File::Spec->catdir( $split_blast_dir, $taxon );
 		unless ( -d $source_dir ) {
 			next;
@@ -669,7 +670,7 @@ sub parrellel_split_blast {
 			"Could not sync $source_dir and $out_dir\n";
 
 	}
-
+}
 	close ($s_b);
 	#my $file      = File::Spec->catfile( $blast_dir, $taxon . '.bla' );
 	#open( my $infile, $file ) || croak "Can't open $file\n";
