@@ -621,7 +621,9 @@ sub parrellel_split_blast {
 			or die "Can't create $split_blast_log_dir\n";
 	}
 	opendir( my $bdir, $blast_dir ) || die "Can't open $blast_dir\n";
-	my $parse_command = "perl /home/mbasu/projects/PhyloProf/util/cache_blast_result.pl ";
+	# my $parse_command = "perl /home/mbasu/projects/PhyloProf/util/cache_blast_result.pl ";
+	# my $parse_command = "perl $FindBin::Bin/../util/cache_blast_result.pl ";
+	my $parse_command = "perl $FindBin::Bin/cache_blast_result.pl ";
 
 	while ( my $file = readdir($bdir) ) {
 		next unless $file =~ /\.bla$/;
