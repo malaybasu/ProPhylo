@@ -65,7 +65,7 @@ while ( my $line = <$getinfile> ) {
 	my $out_dir = File::Spec->catdir( $db_dir, "$taxon" );
 
 	unless ( -d $out_dir ) {
-		mkdir($out_dir) || die "$out_dir i$!";
+		mkdir($out_dir) || die "$out_dir $!";
 	}
 
 	my $taxon_class;
@@ -91,5 +91,5 @@ while ( my $line = <$getinfile> ) {
 
 	#	close($out);
 }
-close($infile);
+#close($infile);
 exit(0);
