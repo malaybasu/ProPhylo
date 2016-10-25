@@ -13,8 +13,7 @@ if (-s $dbname) {
 	die "File $dbname already exists. Please delete it and retry";
 }
 
-make_path (File::Spec->catdir("$db_dir","desc"));
-
+make_path(File::Spec->catdir("$db_dir","desc"));
 
 my %done;
 
@@ -27,9 +26,10 @@ my $sth1 = $dbh->prepare('insert into gi_desc values(?,?)');
 my $seqdb = SeqToolBox::SeqDB->new (-file => $fasta);
 
 while (my $seq = $seqdb->next_seq()) {
-	my $gi = $seq->get_gi();
+	my $gi = $seq->get_gi() ? $seq->get_gi() :$seq->get_id();
 #	my $desc = $seq->get_desc();
-	die "$gi not found\n" unless ($gi);
+  die "$gi not found\n" unless ($gi);
+
 	if (exists $done{$gi}) {
 		next;
 	}
@@ -38,7 +38,7 @@ while (my $seq = $seqdb->next_seq()) {
 #	if (my @array= $sth->fetchrow_array()) {
 #		$taxon = 1;
 #	}
-#	
+#
 #	unless ($taxon) {
 #		print STDERR "Taxon not found for $gi... trying...";
 		my $taxon = "";
@@ -50,7 +50,7 @@ while (my $seq = $seqdb->next_seq()) {
 			$taxon = $desc;
 		}
 #	}
-	
+
 #	unless ($taxon) {
 #		die "Could not determine taxon for $gi\n";
 #	}
